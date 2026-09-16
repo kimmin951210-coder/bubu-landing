@@ -6,6 +6,29 @@
 
   <title>흥부놀부 생방송 안내</title>
 
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGSDT7XCGM"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-GGSDT7XCGM');
+
+    function trackClick(eventName, buttonName, linkUrl) {
+      gtag('event', eventName, {
+        event_category: 'landing_button',
+        button_name: buttonName,
+        link_url: linkUrl,
+        transport_type: 'beacon'
+      });
+    }
+  </script>
+
   <style>
     * {
       box-sizing: border-box;
@@ -101,7 +124,12 @@
       href="https://xn--or3b21d71b.tv/%ED%9D%A5%EB%B6%80%EB%86%80%EB%B6%80"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="지금 생방송 보기">
+      aria-label="지금 생방송 보기"
+      onclick="trackClick(
+        'live_click',
+        '지금 생방송 보기',
+        this.href
+      )">
     </a>
 
     <!-- 2. 지난 방송 다시보기 -->
@@ -110,7 +138,12 @@
       href="https://www.youtube.com/@%EC%98%A4%EB%A3%A1%EC%9D%B4%EB%B6%80%EB%B6%802/featured"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="지난 방송 다시보기">
+      aria-label="지난 방송 다시보기"
+      onclick="trackClick(
+        'replay_click',
+        '지난 방송 다시보기',
+        this.href
+      )">
     </a>
 
     <!-- 3. 오늘의 방송 일정 -->
@@ -119,7 +152,12 @@
       href="https://open.kakao.com/o/snejV3lg"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="오늘의 방송 일정">
+      aria-label="오늘의 방송 일정"
+      onclick="trackClick(
+        'schedule_click',
+        '오늘의 방송 일정',
+        this.href
+      )">
     </a>
 
     <!-- 4. 커뮤니티 문의 -->
@@ -128,7 +166,12 @@
       href="https://telegram.me/storyinquiry"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="커뮤니티 문의">
+      aria-label="커뮤니티 문의"
+      onclick="trackClick(
+        'community_click',
+        '커뮤니티 문의',
+        this.href
+      )">
     </a>
 
   </div>
